@@ -31,7 +31,25 @@ const animateCursor = () => {
 // Animação mouse
 animateCursor();
 
-const moveCubo = (e) => {
+// const moveCubo = (e) => {
+//   const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+//   const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+//   // Mover cubo
+//   const targetX = (clientY / window.innerHeight) * 360 - 180;
+//   const targetY = (clientX / window.innerWidth) * 360 - 180;
+
+//   x += (targetX - x) * 0.1;
+//   y += (targetY - y) * 0.1;
+
+//   cubo.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`;
+
+//   // Position mouse
+//   mouseX = clientX;
+//   mouseY = clientY;
+// };
+
+document.addEventListener('mousemove', (e) => {
   const clientX = e.touches ? e.touches[0].clientX : e.clientX;
   const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
@@ -47,11 +65,41 @@ const moveCubo = (e) => {
   // Position mouse
   mouseX = clientX;
   mouseY = clientY;
-};
+});
+document.addEventListener('touchstart', (e) => {
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
-document.addEventListener('mousemove', moveCubo);
-document.addEventListener('touchstart', moveCubo);
-document.addEventListener('touchmove', moveCubo);
+  // Mover cubo
+  const targetX = (clientY / window.innerHeight) * 360 - 180;
+  const targetY = (clientX / window.innerWidth) * 360 - 180;
+
+  x += (targetX - x) * 0.1;
+  y += (targetY - y) * 0.1;
+
+  cubo.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`;
+
+  // Position mouse
+  mouseX = clientX;
+  mouseY = clientY;
+});
+document.addEventListener('touchmove', (e) => {
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+  // Mover cubo
+  const targetX = (clientY / window.innerHeight) * 360 - 180;
+  const targetY = (clientX / window.innerWidth) * 360 - 180;
+
+  x += (targetX - x) * 0.1;
+  y += (targetY - y) * 0.1;
+
+  cubo.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`;
+
+  // Position mouse
+  mouseX = clientX;
+  mouseY = clientY;
+});
 
 
 // Zoom scroll
