@@ -146,8 +146,10 @@ body {
   .mouse {
     display: none;
   }
-
   .message p {
     font-size: 0.79em;
+  }
+  .cubo > div {
+    transform: none;
   }
 }

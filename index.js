@@ -31,9 +31,7 @@ const animateCursor = () => {
 // Animação mouse
 animateCursor();
 
-document.addEventListener('mousemove', (e) => {
-  e.preventDefault();
-
+const moveCubo = (e) => {
   // Mover cubo
   x = (e.clientY / window.innerHeight) * 360 - 180;
   y = (e.clientX / window.innerWidth) * 360 - 180;
@@ -44,7 +42,10 @@ document.addEventListener('mousemove', (e) => {
   // Position mouse
   mouseX = e.clientX;
   mouseY = e.clientY;
-});
+};
+
+document.addEventListener('mousemove', moveCubo);
+document.addEventListener('touchmove', moveCubo);
 
 // Zoom scroll
 document.addEventListener('scroll', () => {
