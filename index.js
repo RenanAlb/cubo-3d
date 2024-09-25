@@ -32,16 +32,21 @@ const animateCursor = () => {
 animateCursor();
 
 const moveCubo = () => {
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
   // Mover cubo
-  x = (e.clientY / window.innerHeight) * 360 - 180;
-  y = (e.clientX / window.innerWidth) * 360 - 180;
+  const targetX = (clientY / window.innerHeight) * 360 - 180;
+  const targetY = (clientX / window.innerWidth) * 360 - 180;
+
+  x += (targetX - x) * 0.1;
+  y += (targetY - y) * 0.1;
 
   cubo.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`;
-  cubo.style.zoom = `${scale}%`;
 
   // Position mouse
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+  mouseX = clientX;
+  mouseY = clientY;
 };
 
 document.addEventListener('mousemove', moveCubo);
