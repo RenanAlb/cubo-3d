@@ -31,7 +31,7 @@ const animateCursor = () => {
 // Animação mouse
 animateCursor();
 
-const moveCubo = () => {
+const moveCubo = (e) => {
   const clientX = e.touches ? e.touches[0].clientX : e.clientX;
   const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
